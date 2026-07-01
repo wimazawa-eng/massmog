@@ -437,7 +437,7 @@ local Library do
                 NewX = MathClamp(NewX, 0, ScreenSize.X - GuiSize.X)
                 NewY = MathClamp(NewY, 0, ScreenSize.Y - GuiSize.Y)
         
-                self:Tween(TweenInfo.new(0.35, Enum.EasingStyle.Quart, Enum.EasingDirection.Out), {Position = UDim2New(0, NewX, 0, NewY)})
+                Gui.Position = UDim2FromOffset(NewX, NewY)
             end
         
             local InputChanged
@@ -1975,7 +1975,7 @@ local Library do
                     BackgroundColor3 = FromRGB(13, 15, 18)
                 })  Items["MainFrame"]:AddToTheme({BackgroundColor3 = "Background"})
 
-                Items["Top"]:MakeDraggable()
+                Items["MainFrame"]:MakeDraggable()
                 Items["MainFrame"]:MakeResizeable(Vector2New(Items["MainFrame"].Instance.AbsoluteSize.X, Items["MainFrame"].Instance.AbsoluteSize.Y), Vector2New(9999, 9999))
 
                 Items["Shadow"] = Instances:Create("ImageLabel", {
